@@ -2,6 +2,8 @@
 
 A package for parsing numbers into real english words
 
+![Pub Version](https://img.shields.io/pub/v/num_to_txt)
+
 ## Usage
 
 ```dart
