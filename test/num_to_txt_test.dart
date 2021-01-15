@@ -4,10 +4,10 @@ import 'package:num_to_txt/num_to_txt.dart';
 
 void main() {
   test('Convert to classic', () {
-    expect(numToString(2), "two");
+    expect(NumToTxt.numToString(2), "two");
   });
 
   test('Convert to ordinal', () {
-    expect(numToOrdinal(2), "second");
+    expect(NumToTxt.numToOrdinal(2), "second");
   });
 }

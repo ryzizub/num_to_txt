@@ -1,6 +1,6 @@
 name: num_to_txt
-description: A package for parsing numbers into real english words
-version: 0.0.1
+description: A package for parsing numbers into real english words. Can convert into classic words or ordinals
+version: 0.0.2
 homepage: https://github.com/ryzizub/num_to_txt
 
 environment:
