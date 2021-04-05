@@ -6,7 +6,7 @@ class NumToTxt {
    *
    *     'Dart'NumToTxt.numToString(2); // two
    */
-  static String numToString(int n) {
+  static String? numToString(int n) {
     if (n < 0) {
       n = -n;
     }
@@ -14,7 +14,8 @@ class NumToTxt {
       return names[n];
     }
     if (n <= 99) {
-      return names[n / 10] + (n % 10 > 0 ? "-" + numToString(n % 10) : "");
+      return names[n / 10 as int]! +
+          (n % 10 > 0 ? "-" + numToString(n % 10)! : "");
     }
     String label;
     int factor = 0;
@@ -41,10 +42,10 @@ class NumToTxt {
       factor = 1000000000000000000;
     }
 
-    return numToString(n ~/ factor) +
+    return numToString(n ~/ factor)! +
         " " +
         label +
-        (n % factor > 0 ? " " + numToString(n % factor) : "");
+        (n % factor > 0 ? " " + numToString(n % factor)! : "");
   }
 
   /**
@@ -53,14 +54,14 @@ class NumToTxt {
    *     'Dart'NumToTxt.numToOrdinal(2); // second
    */
   static String numToOrdinal(int n) {
-    String spelling = numToString(n);
+    String spelling = numToString(n)!;
     List<String> split = spelling.split(" ");
     String last = split[split.length - 1];
-    String replace = "";
+    String? replace = "";
     if (last.contains("-")) {
       List<String> lastSplit = last.split("-");
       String lastWithDash = lastSplit[1];
-      String lastReplace = "";
+      String? lastReplace = "";
       if (irregularOrdinals.containsKey(lastWithDash)) {
         lastReplace = irregularOrdinals[lastWithDash];
       } else if (lastWithDash.endsWith("y")) {
@@ -69,7 +70,7 @@ class NumToTxt {
       } else {
         lastReplace = lastWithDash + "th";
       }
-      replace = lastSplit[0] + "-" + lastReplace;
+      replace = lastSplit[0] + "-" + lastReplace!;
     } else {
       if (irregularOrdinals.containsKey(last)) {
         replace = irregularOrdinals[last];
@@ -79,7 +80,7 @@ class NumToTxt {
         replace = last + "th";
       }
     }
-    split[split.length - 1] = replace;
+    split[split.length - 1] = replace!;
 
     return split.join(' ');
   }
