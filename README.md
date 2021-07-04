@@ -10,8 +10,11 @@ A package for parsing numbers into real english words
 import 'package:num_to_txt/num_to_txt.dart';
 
 main() {
-  print(NumToTxt.numToOrdinal(10));
-  print(NumToTxt.numToString(100));
+  print(numToTxt.numToOrdinal(10));
+  print(numToTxt.numToString(100));
+
+  print(numToTxt.changeLanguage("en_GB"));
+  print(numToTxt.numToString(100));
 }
 
 ```
